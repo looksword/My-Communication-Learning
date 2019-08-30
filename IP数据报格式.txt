@@ -1,0 +1,19 @@
+
+
+
+
+
+
+字段(字节)
+版本(4)			Version
+首部长度(4)		Header Length
+区分服务(8)		Differentiated Services Field
+总长度(16)		Total Length
+标识(16)		Identification
+标志(3)			Flags(Reserved bit)
+片偏移(13)		Flags(Fragment offset)
+生存时间(8)		Time to alive
+协议(8)			Protocol
+首部检验和(16)	Header checksum
+源地址(32)		Source
+目的地址(32)	Destination
