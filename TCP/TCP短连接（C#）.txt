@@ -1,0 +1,39 @@
+
+using System.Net.Sockets;
+
+
+
+
+
+		/// <summary>
+        /// TCP短连接
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <param name="IP"></param>
+        /// <param name="Port">默认值为10086</param>
+        /// <returns></returns>
+        static public int SendByteByTcp(byte[] bytes, string IP, int Port = 10086)
+        {
+            TcpClient tcp = null;
+            try
+            {
+                //lock (syncObj)
+                {
+                    tcp = new TcpClient(IP, Port);
+                    NetworkStream ns = tcp.GetStream();
+                    ns.WriteTimeout = 2000; // 设置超时2秒
+                    ns.Write(bytes, 0, bytes.Length);
+                    ns.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                tcp.Close();
+            }
+
+            return 0;
+        }
