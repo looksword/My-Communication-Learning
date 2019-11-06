@@ -13,4 +13,7 @@ if (!success)
 }
 
 // we have connected
-client.EndConnect(result);
+if (client.Client.Connected)
+{
+	client.EndConnect(result);
+}
